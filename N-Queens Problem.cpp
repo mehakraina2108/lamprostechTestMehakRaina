@@ -18,6 +18,7 @@ void solve1(vector<string> &cur, int n)
 //solve using backtracking
 void solve2(vector<int> &c, vector<int> &d1, vector<int> &d2, int n, int i, vector<vector<string>> &result, vector<string> &cur)
 {
+     //Base Case
      if (i == n)
      {
           result.push_back(cur);
@@ -27,8 +28,10 @@ void solve2(vector<int> &c, vector<int> &d1, vector<int> &d2, int n, int i, vect
 
      for (int j = 0; j < n; j++)
      {
+          //to check if the position is safe
           if (!c[j] && !d1[i - j + n - 1] && !d2[i + j])
           {
+               //Marking column and diagonal 1 and diagonal 2 as visited
                c[j] = 1;
                d1[i - j + n - 1] = 1;
                d2[i + j] = 1;
@@ -43,7 +46,7 @@ void solve2(vector<int> &c, vector<int> &d1, vector<int> &d2, int n, int i, vect
           }
      }
 }
-
+//Main function to solve the problem
 vector<vector<int>> solve(int n)
 {
      vector<int> col(n, 0);
