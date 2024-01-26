@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Function to solve using DP table
 int knapsack(vector<int>& weight, vector<int>& values, int n, int givenlimit) {
     vector<vector<int>> dp(n, vector<int>(givenlimit + 1, 0));
 
