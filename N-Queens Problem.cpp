@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+//Function to initialize vector of string of dots
 void solve1(vector<string> &cur, int n)
 {
      string str = "";
@@ -15,6 +15,7 @@ void solve1(vector<string> &cur, int n)
      }
 }
 
+//solve using backtracking
 void solve2(vector<int> &c, vector<int> &d1, vector<int> &d2, int n, int i, vector<vector<string>> &result, vector<string> &cur)
 {
      if (i == n)
@@ -32,7 +33,9 @@ void solve2(vector<int> &c, vector<int> &d1, vector<int> &d2, int n, int i, vect
                d1[i - j + n - 1] = 1;
                d2[i + j] = 1;
                cur[i][j] = 'Q';
+               //Recursive placing queens in next row
                solve2(c, d1, d2, n, i + 1, result, cur);
+               //Backtrack
                c[j] = 0;
                d1[i - j + n - 1] = 0;
                d2[i + j] = 0;
@@ -44,6 +47,7 @@ void solve2(vector<int> &c, vector<int> &d1, vector<int> &d2, int n, int i, vect
 vector<vector<int>> solve(int n)
 {
      vector<int> col(n, 0);
+     //Initailize dp1 and dp2 vectors with 0
      vector<int> d1(2 * n, 0);
      vector<int> d2(2 * n, 0);
      vector<vector<string>> result;
